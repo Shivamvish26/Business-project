@@ -12,8 +12,9 @@ app.use(express.json());
 app.use(cors());
 
 const adminRoutes = require("./routes/authRoutes");
-const serviceRoutes = require("./routes/serviceRoutes")
-const galleryRoutes = require("./routes/galleryRoutes")
+const serviceRoutes = require("./routes/serviceRoutes");
+const galleryRoutes = require("./routes/galleryRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 
 // sample post
 app.post("/sample", (req, resp) => {
@@ -27,7 +28,10 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/service", serviceRoutes);
 
 // gallery routes
-app.use("/api/gallery", galleryRoutes)
+app.use("/api/gallery", galleryRoutes);
+
+// booking routes
+app.use("/api/booking", bookingRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
