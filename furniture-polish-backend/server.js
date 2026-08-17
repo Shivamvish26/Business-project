@@ -15,6 +15,7 @@ const adminRoutes = require("./routes/authRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
 const galleryRoutes = require("./routes/galleryRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 
 // sample post
 app.post("/sample", (req, resp) => {
@@ -32,6 +33,9 @@ app.use("/api/gallery", galleryRoutes);
 
 // booking routes
 app.use("/api/booking", bookingRoutes);
+
+// contact routes
+app.use("/api/contact", contactRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

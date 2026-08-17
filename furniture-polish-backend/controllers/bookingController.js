@@ -99,10 +99,53 @@ const updateBooking = async (req, res) => {
 };
 
 // Delete Booking api
+const deleteBooking = async (req, res) => {
+  try {
+    const booking = await Booking.findByIdAndDelete(req.params.id);
+    if (!booking) {
+      return res.status(404).json({
+        message: "Booking Not Found",
+      });
+    }
+    res.status(200).json({
+      message: "Booking Deleted Successfully",
+      booking,
+    });
+  } catch (error) {
+    console.log("Failed to delete the Booking", error);
+    res.status(500).json({
+      message: "Faild to Delete the Booking",
+      error: error.message,
+    });
+  }
+};
 
+// single booking
+const getSingleBoking = async (req, res) => {
+  try {
+    const booking = await Booking.findById(req.params.id);
+    if (!booking) {
+      return res.status(404).json({
+        message: "Single Booking Not Found",
+      });
+    }
+    res.status(200).json({
+      message: "Single Booking Fetched",
+      booking,
+    });
+  } catch (error) {
+    console.log("Faild to fetch the Single Booking");
+    res.status(500).json({
+      message: "Failed to Fetch the Single Booking",
+      error: error.message,
+    });
+  }
+};
 
 module.exports = {
   createBooking,
   getAllBooking,
   updateBooking,
+  deleteBooking,
+  getSingleBoking,
 };
