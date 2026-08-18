@@ -16,6 +16,8 @@ const serviceRoutes = require("./routes/serviceRoutes");
 const galleryRoutes = require("./routes/galleryRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const contactRoutes = require("./routes/contactRoutes");
+const testmoinalRoutes = require("./routes/testimonialRoutes");
+const faqRoutes = require("./routes/faqRoutes");
 
 // sample post
 app.post("/sample", (req, resp) => {
@@ -37,6 +39,12 @@ app.use("/api/booking", bookingRoutes);
 // contact routes
 app.use("/api/contact", contactRoutes);
 
-app.listen(3000, () => {
+// testimonial routes
+app.use("/api/testimonial", faqRoutes);
+
+// faq routes
+app.use("/api/faq", faqRoutes)
+
+app.listen(3000, "0.0.0.0", () => {
   console.log("Server is running on port 3000");
 });
