@@ -11,6 +11,7 @@ const registerAdmin = async (req, res) => {
         message: "Name, email and password are required",
       });
     }
+    
     // Check if admin already exists
     const existingAdmin = await Admin.findOne({ email });
 
