@@ -12,6 +12,7 @@ const createBooking = async (req, res) => {
       description,
       preferredDate,
       preferredTime,
+      status
     } = req.body;
 
     const booking = new Booking({
@@ -23,6 +24,7 @@ const createBooking = async (req, res) => {
       description,
       preferredDate,
       preferredTime,
+      status
     });
 
     const result = await booking.save();

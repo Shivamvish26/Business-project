@@ -8,8 +8,12 @@ const connectDB = require("./config/db");
 // middleware
 app.use(express.json());
 
+const path = require("path");
 // cors
 app.use(cors());
+
+// serve uploaded files statically
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const adminRoutes = require("./routes/authRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
@@ -40,7 +44,7 @@ app.use("/api/booking", bookingRoutes);
 app.use("/api/contact", contactRoutes);
 
 // testimonial routes
-app.use("/api/testimonial", faqRoutes);
+app.use("/api/testimonial", testmoinalRoutes);
 
 // faq routes
 app.use("/api/faq", faqRoutes)
